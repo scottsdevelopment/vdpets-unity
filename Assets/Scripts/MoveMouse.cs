@@ -9,7 +9,8 @@ public class MoveMouse : MonoBehaviour
 	/// The logic is the same as moving a 2D object, though the y-axis is reversed (y-down rather than Unity's y-up)
 	/// </summary>
 
-	[SerializeField] float moveSpeed = 500f;
+	[SerializeField] 
+	protected float moveSpeed = 500f;
 
 	void Update()
 	{

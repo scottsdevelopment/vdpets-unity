@@ -6,14 +6,14 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class WindowBoundsCollider2D : MonoBehaviour
 {
-	new Camera camera;
-	EdgeCollider2D borderCollider;
+	protected new Camera camera;
+	protected EdgeCollider2D borderCollider;
 
 	[Tooltip("Camera-relative size of the bounds (1 = full window, 0.5 = half). Useful for safe-areas")] [SerializeField]
-	float scale = 1f;
+	protected float scale = 1f;
 
 	[Tooltip("A larger radius helps prevent fast-moving objects from clipping through")] [SerializeField]
-	float edgeRadius = 10f;
+	protected float edgeRadius = 10f;
 
 	void Start()
 	{
@@ -45,7 +45,7 @@ public class WindowBoundsCollider2D : MonoBehaviour
 		var maxScale = scale;
 		var minScale = 1f - scale;
 
-		if (!camera)
+		if (camera == null)
 		{
 			camera = GetComponent<Camera>();
 		}

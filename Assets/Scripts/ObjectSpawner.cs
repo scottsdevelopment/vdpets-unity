@@ -5,10 +5,10 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour
 {
 	[Tooltip("Prefab to spawn on click")] [SerializeField]
-	GameObject prefab = null;
+	protected GameObject prefab = null;
 
 	[Tooltip("If enabled, SystemInput will allow clicks to be detected even without window focus")] [SerializeField]
-	bool useSystemInputIfAvailable = false;
+	protected bool useSystemInputIfAvailable = false;
 
 	void Update()
 	{
@@ -30,7 +30,7 @@ public class ObjectSpawner : MonoBehaviour
 
 	void InstantiatePrefab()
 	{
-		var pos = TransparentWindow.Camera.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 pos = TransparentWindow.Camera.ScreenToWorldPoint(Input.mousePosition);
 		Instantiate(prefab, pos, Quaternion.identity);
 	}
 }

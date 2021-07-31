@@ -36,7 +36,7 @@ public class DragObject : MonoBehaviour
 			return;
 		}
 
-		var overlapCollider = Physics2D.OverlapPoint(pos, clickLayerMask);
+		Collider2D overlapCollider = Physics2D.OverlapPoint(pos, clickLayerMask);
 		if (!overlapCollider)
 		{
 			return;
