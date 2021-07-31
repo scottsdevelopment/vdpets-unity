@@ -9,13 +9,7 @@ public class DragWindow : MonoBehaviour
 	/// Simple click-and-drag, but moves the actual window (if not fullscreen)
 	/// </summary>
 	
-	new Collider2D collider = null;
-	bool draggingWindow = false;
-
-	void Awake()
-	{
-		collider = GetComponent<Collider2D>();
-	}
+	protected bool draggingWindow = false;
 
 	void Update()
 	{
@@ -36,7 +30,7 @@ public class DragWindow : MonoBehaviour
 				return;
 			}
 
-			if (overlapCollider == collider)
+			if (overlapCollider == GetComponent<Collider2D>())
 			{
 				draggingWindow = true;
 			}
